@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'product/index'
+
+  get 'product/show'
+
+  get 'product/new'
+
+  get 'product/edit'
+
+  get 'product/delete'
+
   root 'static#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
