@@ -23,7 +23,25 @@ $(document).ready(function($) {
      applicationRate =  parseInt($("#application-rate").val(), 10);
      acres = (initialCapacity - currentVolume) / applicationRate;
      var acresText = "<div class='alert alert-success' role='alert'>You can spray " + acres + " acres at this tank capacity.</div>";
-    $("#acres").append(acresText);
+     console.log(acres);
+    $("#total-acres").append(acresText);
+    
   });
+
+  $("#product-name").blur(function(){
+    var productRate = $("#product-name option:selected").val();
+    console.log(productRate);
+    var volume = productRate.split(" ");
+    console.log(volume);
+    units = volume[1];
+    volume = (parseInt(volume[0], 10)) * acres;
+    //volume.toLocaleString();
+    $("#rate-info").append("<p>This product is applied at " + productRate + " per acre.  You will need to apply " + volume + " " + units + ".</p>");
+
+    console.log(volume + " " + units);
+
+
+  });
+  
 
 });
